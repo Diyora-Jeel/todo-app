@@ -12,7 +12,7 @@ function Home() {
     const fetchtodos = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3000/todo/fetch", {
+        const response = await axios.get("https://todo-app-api-bay-nu.vercel.app/todo/fetch", {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function Home() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/todo/create",
+        "https://todo-app-api-bay-nu.vercel.app/todo/create",
         {
           text: newTodo,
           completed: false,
@@ -54,7 +54,7 @@ function Home() {
     console.log(todo);
     try {
       const response = await axios.put(
-        `http://localhost:3000/todo/update/${id}`,
+        `https://todo-app-api-bay-nu.vercel.app/todo/update/${id}`,
         {
           ...todo,
           completed: !todo.completed,
@@ -71,7 +71,7 @@ function Home() {
 
   const todoDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/todo/delete/${id}`, {
+      await axios.delete(`https://todo-app-api-bay-nu.vercel.app/todo/delete/${id}`, {
         withCredentials: true,
       });
       setTodos(todos.filter((t) => t._id !== id));
